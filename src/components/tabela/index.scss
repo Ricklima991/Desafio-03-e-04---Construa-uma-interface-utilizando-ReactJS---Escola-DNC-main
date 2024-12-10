@@ -1,0 +1,188 @@
+@use '../styles/mixins' as *;
+@use '../styles/variables' as *;
+
+.tabela {
+    @include flex-position(
+        flex,
+        column,
+        auto,
+        center,
+        center,
+        center
+    );
+    color: $cor-font-branco;
+
+    &__content{
+        width: 60vw;
+        th{
+            color: $cor-font-branco;
+            background-color: $cor-bg-azul;
+        }
+    }
+    
+    
+    tr{
+        
+        th:first-child {
+            width: 56%;
+            text-align: center;
+            padding: .4rem;
+        }
+        
+        th:last-child {
+            width: 20%;
+            text-align: center;
+            padding: .4rem;
+        }
+        
+        td:first-child {
+            text-align: left;
+            padding-left: .2rem;
+            P{
+                padding: .4rem;
+            }
+        }
+        
+        td:last-child {
+            text-align: right;
+            display: flex;
+            justify-content: center;
+            svg{
+                @include icon-model;
+            }
+        }
+    }
+    
+    
+    &__newitem{
+        width: 60vw;
+        padding: 1rem .4rem;
+        display: flex;
+        justify-content: space-between;
+
+        input{
+            outline: none;
+            padding: .6rem;
+            font-style: italic;
+            background-color: transparent;
+            border: none;
+            color: $cor-font-branco;
+            
+        }
+
+        svg{
+            @include icon-model;
+        }
+    }
+}
+
+@include viewport(xl){
+    .tabela__content{
+        width: 80vw;
+    }
+
+    .tabela__newitem{
+        width: 80vw;
+    }
+}
+
+@include viewport(md){
+    .tabela__content{
+        width: 96vw;
+
+        th{
+            font-size: .8rem;
+        }
+    }
+
+    tr{
+        td:first-child {
+            P{
+                font-size: .8rem;
+            }
+        }
+
+        td:last-child {
+            svg{
+                width: 17px;
+            }
+        }
+
+        input{
+            width: 12px;
+        }
+    }
+
+    .tabela__newitem{
+        width: 96vw;
+
+        input{
+            font-size: .8rem;
+        }
+
+        svg{
+            width: 17px;
+        }
+    }
+}
+
+@include viewport(sm){
+    tr{
+        td:last-child {
+            svg{
+                width: 15px;
+            }
+        }
+
+        th:last-child {
+            width: 20%;
+        }
+
+        input{
+            width: 11px;
+        }
+    }
+
+    .tabela__newitem{
+        width: 96vw;
+
+        input{
+            font-size: .8rem;
+        }
+
+        svg{
+            width: 15px;
+        }
+    }
+}
+
+@include viewport(xs){
+    .tabela__content th{
+        font-size: .67rem;
+    }
+
+    tr{
+        td:first-child{
+            p{
+                font-size: .67rem;
+            }
+        }
+
+        td:last-child {
+            svg{
+                width: 14px;
+            }
+        }
+    }
+
+    .tabela__newitem{
+
+        input{
+            font-size: .67rem;
+        }
+
+        svg{
+            width: 14px;
+        }
+    }
+}

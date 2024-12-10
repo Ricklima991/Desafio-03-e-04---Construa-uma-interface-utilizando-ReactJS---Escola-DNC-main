@@ -1,0 +1,45 @@
+@use '../styles/mixins' as *;
+@use '../styles/variables' as *;
+
+.navbar{
+    @include flex-position(
+        flex,
+        row,
+        auto,
+        start,
+        center,
+        end
+    );
+    width: 100vw;
+    height: 8vh;
+    background-color: $cor-bg-azul;
+    padding-left: .3rem;
+    
+    &__btn{
+        padding: .5rem 1.3rem;
+        border-radius: .5rem .5rem 0rem 0rem;
+        color: $cor-font-branco;
+        cursor: pointer;
+    }
+    
+    .active{
+        color: $cor-bg-branco;
+        background-color: $cor-bg-preto;
+    }
+}
+
+@include viewport(md){
+    .navbar{
+        p{
+            font-size: .8rem;
+        }
+    }
+}
+
+@include viewport(xs){
+    .navbar{
+        p{
+            font-size: .67rem;
+        }
+    }
+}

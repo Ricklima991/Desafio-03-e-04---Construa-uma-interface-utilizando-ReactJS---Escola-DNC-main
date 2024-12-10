@@ -1,0 +1,62 @@
+@use '../styles/variables' as *;
+
+//FLEX
+
+@mixin flex-position(
+    $display,
+    $flex-direction,
+    $margin,
+    $justify-content,
+    $text-align,
+    $align-items
+){
+    display: $display;
+    flex-direction: $flex-direction;
+    margin: $margin;
+    justify-content: $justify-content;
+    text-align: $text-align;
+    align-items: $align-items;
+}
+
+
+// MODELO PADRÃO DOS ICONES
+
+@mixin icon-model{
+    margin: .6rem;
+
+    &:hover{
+        cursor: pointer;
+        transition: .1s ease;
+        transform: scale(1.2);
+    }
+}
+
+
+//MODELO PADRÃO DOS BOTÕES
+
+@mixin btn-model{
+    padding: .6rem 4.5rem;
+    border-radius: 10px;
+    text-transform: uppercase;
+    cursor: pointer;
+    background-color: $cor-bg-azul;   
+}
+
+
+//VIEWPORTS
+
+@mixin viewport($breakpoints){
+    $devices:(
+        xs: 320px,
+        sm: 480px,
+        smd: 600px,
+        md: 768px,
+        lg: 992px,
+        xl: 1200px
+    );
+    $breakpoint: map-get($devices, $breakpoints);
+    
+    @media(max-width: $breakpoint){
+        @content
+    }
+}

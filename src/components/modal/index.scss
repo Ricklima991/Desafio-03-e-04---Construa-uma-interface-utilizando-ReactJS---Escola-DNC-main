@@ -1,0 +1,131 @@
+@use '../styles/mixins' as *;
+@use '../styles/variables' as *;
+
+
+.modal {
+  @include flex-position(
+    flex,
+    column,
+    auto,
+    center,
+    center,
+    center
+  );
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: $cor-bg-shadow-preto;
+
+  &__content {
+    @include flex-position(
+      flex,
+      column,
+      auto,
+      center,
+      center,
+      center
+    );
+    width: auto;
+    height: auto;
+    background-color: $cor-bg-branco;
+    border-radius: 15px;
+    color: $cor-bg-preto;
+
+    h1{
+      margin: 1.5rem;
+    }
+
+    p{
+      margin: 1rem;
+    }
+
+    &--btnYN{
+      margin-bottom: 1.5rem;
+    }
+  }
+
+
+  .btn{
+    @include btn-model;
+    transition-duration: .2s;
+    margin: .5rem;
+    
+    &:hover{
+      transform: translateY(-.1rem);
+      transition-duration: .2s;
+    }
+  }
+  
+  .btnDisabled{
+    @include btn-model;
+    background-color: $cor-bg-branco;
+    cursor: not-allowed;
+
+    &:hover{
+      transform: none;
+    }
+  }
+
+}
+
+@include viewport(md){
+  .modal__content{
+    padding: 1rem;
+
+    h1{
+      font-size: 1.5rem;
+    }
+
+    p{
+      font-size: .8rem;
+    }
+
+    &--btnYN{
+      margin-bottom: .5rem;
+    }
+
+    button{
+      font-size: .8rem;
+    }
+  }
+}
+
+@include viewport(sm){
+  .modal__content{
+    width: 90vw;
+
+    h1{
+      margin: 1rem;
+    }
+
+    p{
+      margin: .5rem;
+    }
+
+    &--btnYN{
+      margin: 0;
+    }
+
+    button{
+      font-size: .8rem;
+    }
+  }
+}
+
+@include viewport(xs){
+  .modal__content{
+    h1{
+      font-size: 1.2rem;
+    }
+
+    p{
+      font-size: .67rem;
+    }
+
+    button{
+      font-size: .67rem;
+    }
+  }
+}

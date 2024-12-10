@@ -1,0 +1,8 @@
+@use '../styles/mixins' as *;
+@use '../styles/variables' as *;
+
+.app{
+    width: 100vw;
+    height: 100vh;
+    background-color: $cor-bg-preto;
+}
